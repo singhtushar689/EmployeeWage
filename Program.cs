@@ -2,29 +2,33 @@
 {
     internal class Program
     {
+        
+        const int Emp_Rate_Per_Hour = 500;
         static void Main(string[] args)
         {
-            const int PartTime = 1;
-            const int FullTime = 2;
-            const int Rate_Per_Hour = 200;
+            const  int PartTime = 1;
+            const int FullTime = 2; 
             int empHours = 0;
             int empWage = 0;
-            Random random = new Random();   
-            int EmpCheck = random.Next(0,3);
-            if (EmpCheck == PartTime)
+            Random random = new Random(); 
+            int Empcheck = random.Next(0,3);
+            switch (Empcheck)
             {
-                empHours = 4;
+                case PartTime:
+                    empHours = 4;
+                    break;
+                case FullTime:
+                    empHours = 8;
+                    break;
+                    default:
+                    empHours = 0;
+                    break;
+
             }
-            else if (EmpCheck == FullTime)
-            {
-                empHours = 8;
-            }
-            else 
-            {
-                empHours = 0;
-            }
-            empWage = empHours * Rate_Per_Hour;
-            Console.WriteLine("Emp Wage is :" + empWage);
+            empWage = empHours * Emp_Rate_Per_Hour;
+            Console.WriteLine("Employee Wage is :" + empWage);
+            
+           
         }
     }
 }
