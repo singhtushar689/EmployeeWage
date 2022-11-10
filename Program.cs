@@ -16,12 +16,15 @@
             {
                 case PartTime:
                     empHours = 4;
+                    Console.WriteLine("Employee is Part-Time");
                     break;
-                case FullTime:
+                    case FullTime:
                     empHours = 8;
+                    Console.WriteLine("Employee is Full-Time");
                     break;
                     default:
                     empHours = 0;
+                    Console.WriteLine("Employee is Absent");    
                     break;
 
             }
