@@ -1,37 +1,45 @@
-﻿namespace Employeeattendance
+﻿namespace Employee_Usercase
 {
     internal class Program
     {
-        
-        const int Emp_Rate_Per_Hour = 500;
+
+        public const int IS_FULL_TIME = 1;
+        public const int IS_PART_TIME = 2;
+        public const int EMP_RATE_PER_HOUR = 100;
+        public const int NUM_OF_WORKING_DAYS = 20;
+
         static void Main(string[] args)
+
         {
-            const  int PartTime = 1;
-            const int FullTime = 2; 
-            int empHours = 0;
+            int empHrs = 0;
             int empWage = 0;
-            Random random = new Random(); 
-            int Empcheck = random.Next(0,3);
-            switch (Empcheck)
+            int totalEmpWage = 0;
+
+            for (int day = 0; day < NUM_OF_WORKING_DAYS; day++)
             {
-                case PartTime:
-                    empHours = 4;
-                    Console.WriteLine("Employee is Part-Time");
-                    break;
-                    case FullTime:
-                    empHours = 8;
-                    Console.WriteLine("Employee is Full-Time");
-                    break;
+                Random random = new Random();
+                int empCheck = random.Next(0, 3);
+                switch (empCheck)
+                {
+                    case IS_FULL_TIME:
+                        empHrs = 8;
+                        break;
+                    case IS_PART_TIME:
+                        empHrs = 4;
+                        break;
                     default:
-                    empHours = 0;
-                    Console.WriteLine("Employee is Absent");    
-                    break;
+                        empHrs = 0;
+                        break;
+                }
+                empWage = empHrs * EMP_RATE_PER_HOUR;
+                totalEmpWage += empWage;
+                Console.WriteLine("Emp Wage : " + empWage);
 
             }
-            empWage = empHours * Emp_Rate_Per_Hour;
-            Console.WriteLine("Employee Wage is :" + empWage);
-            
-           
+            Console.WriteLine("Total Emp Wage : " + totalEmpWage);
+
         }
     }
 }
+
+
