@@ -6,12 +6,10 @@ namespace Employee_Usercase
     {
         static void Main(string[] args)
         {
-            EmpWageBuilderObject dMart = new EmpWageBuilderObject("Amazon", 20, 20, 100);
-            EmpWageBuilderObject jio = new EmpWageBuilderObject("Tata", 15, 20, 50);
-            dMart.computeEmpWage();
-            Console.WriteLine(dMart.toString());
-            jio.computeEmpWage();
-            Console.WriteLine(jio.toString());
+            EmpWageBuilderArray empWageBuilder = new EmpWageBuilderArray();
+            empWageBuilder.addCompanyEmpWage("Amazon", 10, 20, 100);
+            empWageBuilder.addCompanyEmpWage("Tata", 15, 30, 50);
+            empWageBuilder.computeEmpWage();
         }
     }
 }
